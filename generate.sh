@@ -1,0 +1,1 @@
+xsdata generate paybysquare/bysquare-pay-1_1_0.xsd --package paybysquare.model

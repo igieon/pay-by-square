@@ -1,0 +1,16 @@
+from paybysquare.model.bysquare_pay_1_1_0 import (
+    BankAccount,
+    BankAccounts,
+    BySquareDocument,
+    DirectDebitExt,
+    DirectDebitScheme,
+    DirectDebitType,
+    Month,
+    Pay,
+    PayBase,
+    Payment,
+    PaymentOption,
+    Payments,
+    Periodicity,
+    StandingOrderExt,
+)
