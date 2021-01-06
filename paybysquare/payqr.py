@@ -75,7 +75,7 @@ class PayBySquare:
         '{http://www.bysquare.com/bysquare-addons}documentType']
     _reserved = '0'
     _separator = '\t'
-    _date_pattern = re.compile('\d{4}-\d{2}-\d{2}')
+    _date_pattern = re.compile('\\d{4}-\\d{2}-\\d{2}')
 
     def __init__(self):
         self.parser = XmlParser(context=XmlContext())
@@ -85,7 +85,6 @@ class PayBySquare:
             pay = self.parser.from_bytes(input, Pay)
         else:
             pay = self.parser.parse(input, Pay)
-        type_name = type(pay).__name__
 
         result = self._process_attributes(pay)
         result = ''.join(result).encode('utf-8')
@@ -190,7 +189,8 @@ class Base32Hex:
 
     @staticmethod
     def decode(data: typing.Union[bytes, bytearray]):
-        if len(data) % 8: data = data.ljust(len(data) + 8 - len(data) % 8, b'=')
+        if len(data) % 8:
+            data = data.ljust(len(data) + 8 - len(data) % 8, b'=')
         return base64.b32decode(data.translate(Base32Hex._translate_b32hex_to_b32))
 
     @staticmethod
